@@ -1,0 +1,33 @@
+{
+  "name": "augu",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc && vite build && electron-builder",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "pinia": "^2.1.4",
+    "pinia-plugin-persistedstate": "^3.1.0",
+    "vite-plugin-vuetify": "^1.0.2",
+    "vue": "^3.2.47",
+    "vue-i18n": "^9.2.2",
+    "vue-router": "^4.2.2",
+    "vuetify": "^3.3.5"
+  },
+  "devDependencies": {
+    "@iconify/vue": "^4.1.1",
+    "@mdi/font": "^7.2.96",
+    "@vitejs/plugin-vue": "^4.1.0",
+    "electron": "^24.4.0",
+    "electron-builder": "^23.6.0",
+    "sass": "^1.63.4",
+    "typescript": "^5.0.2",
+    "vite": "^4.3.2",
+    "vite-plugin-electron": "^0.11.2",
+    "vite-plugin-electron-renderer": "^0.14.5",
+    "vue-tsc": "^1.4.2"
+  },
+  "main": "dist-electron/main.js"
+}
