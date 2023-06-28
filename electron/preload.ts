@@ -90,3 +90,21 @@ window.onmessage = ev => {
 }
 
 setTimeout(removeLoading, 4999)
+
+// ----------------------------------------------------------------------
+import { contextBridge, ipcRenderer } from "electron"
+
+declare global {
+  interface Window {
+    electronAPI: {
+      openDirectorySelect: () => Promise<string[] | null>
+    }
+  }
+}
+
+contextBridge.exposeInMainWorld('electronAPI', {
+  openDirectorySelect: async () => {
+    return await ipcRenderer.invoke('dialog:openDirectorySelect')
+  }
+})
+
