@@ -13,6 +13,8 @@ dist-ssr
 dist-electron
 release
 *.local
+yarn.lock
+package-lock.json
 
 # Editor directories and files
 .vscode/*

@@ -1191,9 +1191,9 @@ electron-publish@23.6.0:
     mime "^2.5.2"
 
 electron@^24.4.0:
-  version "24.6.0"
-  resolved "https://registry.yarnpkg.com/electron/-/electron-24.6.0.tgz#4e21e739c3b63075c5e8968ee45061d1626d139f"
-  integrity sha512-XI101tybeVGl2tFyrd304KMAnNCbLKKZGrmWNWpTYK9LgsP9m5Q/LN3dFctDv/bpKmrko8sCKMtARlzbf/hTCw==
+  version "24.6.1"
+  resolved "https://registry.yarnpkg.com/electron/-/electron-24.6.1.tgz#f3577a553c9b50295395f1688dd84f96affae289"
+  integrity sha512-SXbRtatpvBqtOwlOiEbaI47Repspz5a/qoaNZ+GB3DLhi9Z0r28t14pu+a9nXgX5tXj8lOfN8D9wmwVYdo4TAg==
   dependencies:
     "@electron/get" "^2.0.0"
     "@types/node" "^18.11.18"
@@ -2306,9 +2306,9 @@ type-fest@^0.13.1:
   integrity sha512-34R7HTnG0XIJcBSn5XhDd7nNFPRcXYRZrBB2O2jdKqYODldSzBAqzsWoZYYvduky73toYS/ESqxPvkDf/F0XMg==
 
 typescript@^5.0.2:
-  version "5.1.5"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.1.5.tgz#a3ae755082488b6046fe64345d293ef26af08671"
-  integrity sha512-FOH+WN/DQjUvN6WgW+c4Ml3yi0PH+a/8q+kNIfRehv1wLhWONedw85iu+vQ39Wp49IzTJEsZ2lyLXpBF7mkF1g==
+  version "5.1.6"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.1.6.tgz#02f8ac202b6dad2c0dd5e0913745b47a37998274"
+  integrity sha512-zaWCozRZ6DLEWAWFrVDz1H6FVXzUSfTy5FUMWsQlU8Ym5JP9eO4xkTIROFCQvhQf61z6O/G6ugw3SgAnvvm+HA==
 
 universalify@^0.1.0:
   version "0.1.2"

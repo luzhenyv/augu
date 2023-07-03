@@ -1,46 +1,52 @@
 <template>
-    <div class="Dropzone-page">
-      <h1>YOLOv5 Demo</h1>
-      <v-btn
-        @click="showImagesFromFolder()"
-        icon
-        color="grey-darken-4"
-        class="text-white"
-      >
-        <Icon width="30" icon="line-md:moon-filled-loop" />
-      </v-btn>
-      <span class="ml-5">Load Images</span>
-      <div class="Dropzone" v-if = !state.loading>
-        <div class="Dropzone-img-wrapper">
-          <img
-            alt="upload preview"
-            @load="onImageChange($event)"
-            class="Dropzone-img"
-            id = "originalImage"
-            :src= state.preview
-          />
-          <canvas id="canvas" width="640" height="640" />
-        </div>
-        <div class="Dropzone-predictions">
-          <div v-if="state.predictions">
-            Finishing
-            <!-- <div v-for="prediction in state.predictions" :key="prediction.class">
-              <div class="Dropzone-prediction">
-                <div class="Dropzone-prediction-label">
-                  {{ prediction.class }}
-                </div>
-                <div class="Dropzone-prediction-confidence">
-                  {{ prediction.score.toFixed(2) }}
-                </div>
-              </div>
-            </div> -->
-          </div>
-          <div v-else-if="state.loading">Loading...</div>
-          <div v-else-if="state.error">Error: {{ state.error }}</div>
-          <div v-else>No predictions</div>
-        </div>
+  <div class="Dropzone-page">
+    <h1>YOLOv5 Demo</h1>
+    <v-btn
+      @click="showImagesFromFolder()"
+      icon
+      color="grey-darken-4"
+      class="text-white"
+    >
+      <Icon width="30" icon="line-md:moon-filled-loop" />
+    </v-btn>
+    <span class="ml-5">Load Images</span>
+    <div class="Dropzone" v-if = !state.loading>
+      <div class="Dropzone-img-wrapper">
+        <img
+          alt="upload preview"
+          @load="onImageChange($event)"
+          class="Dropzone-img"
+          id = "originalImage"
+          :src= state.preview
+        />
+        <canvas id="canvas" width="640" height="640" />
       </div>
-      <div class="Dropzone" v-else>Loading model...</div>
+      <div class="Dropzone-predictions">
+        <div v-if="state.predictions">
+          Finishing
+        </div>
+        <div v-else-if="state.loading">Loading...</div>
+        <div v-else-if="state.error">Error: {{ state.error }}</div>
+        <div v-else>No predictions</div>
+      </div>
+    </div>
+    <div class="Dropzone" v-else>Loading model...</div>
+    <hr>
+    <v-btn
+      @click="openWebCam()"
+      icon
+      color="grey-darken-4"
+      class="text-white"
+    >
+      <Icon width="30" icon="line-md:moon-filled-loop" />
+    </v-btn>
+    <span class="ml-5">Open webcam</span>
+    <div class="Dropzone" v-if = !state.loading>
+      <div class="Dropzone-img-wrapper">
+        <video id = "webcam" autoplay controls></video>
+      </div>
+    </div>
+    <div class="Dropzone" v-else>Loading model...</div>
   </div>
 </template>
 
@@ -199,10 +205,19 @@ function showImagesFromFolder(){
     )
 }
 
+function openWebCam(){
+  const video = document.getElementById("webcam") as HTMLVideoElement;
+  navigator.mediaDevices.getUserMedia({video: true}).then((stream) => {
+    video.srcObject = stream;
+    video.play();
+  });
+}
+
 onMounted(() => {
   state.loading = true;
   tf.loadGraphModel(weights).then((m) => {
-    console.log(`Load Model is ${m.inputs[0].shape}`);
+    // console.log(`Load Model is ${m.inputs[0].shape}`);
+    console.log(`TF backend is ${tf.getBackend()}`);
     model = m;
     state.loading = false;
   });
